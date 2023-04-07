@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+option go_package = "github.com/kekaiwang/blog_grpc";
+
+package blog_grpc;
+
+service blog {
+    rpc ArticleDetail (ArticleDetailReqeust) returns (ArticleDetailReply) {}
+}
+
+message ArticleDetailReqeust {
+    string slug = 1;
+}
+
+message ArticleDetailReply {
+    string title = 1;
+    string Thumb = 2;
+    string Slug =3;
+    string Excerpt = 4;
+    string Content = 5;
+    string DisplayTime = 6;
+    string Next = 7;
+    string Previous = 8;
+    string CategoryName = 9;
+    string CategoryLink = 10;
+}
