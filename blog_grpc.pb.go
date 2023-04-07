@@ -47,21 +47,19 @@ func (c *blogClient) ArticleDetail(ctx context.Context, in *ArticleDetailReqeust
 }
 
 // BlogServer is the server API for Blog service.
-// All implementations must embed UnimplementedBlogServer
+// All implementations should embed UnimplementedBlogServer
 // for forward compatibility
 type BlogServer interface {
 	ArticleDetail(context.Context, *ArticleDetailReqeust) (*ArticleDetailReply, error)
-	mustEmbedUnimplementedBlogServer()
 }
 
-// UnimplementedBlogServer must be embedded to have forward compatible implementations.
+// UnimplementedBlogServer should be embedded to have forward compatible implementations.
 type UnimplementedBlogServer struct {
 }
 
 func (UnimplementedBlogServer) ArticleDetail(context.Context, *ArticleDetailReqeust) (*ArticleDetailReply, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ArticleDetail not implemented")
 }
-func (UnimplementedBlogServer) mustEmbedUnimplementedBlogServer() {}
 
 // UnsafeBlogServer may be embedded to opt out of forward compatibility for this service.
 // Use of this interface is not recommended, as added methods to BlogServer will
