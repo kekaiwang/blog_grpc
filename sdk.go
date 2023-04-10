@@ -24,7 +24,7 @@ func Client() (BlogClient, error) {
 		log.Fatalf("did not connect: %v", err)
 	}
 
-	defer conn.Close()
+	// defer conn.Close()
 
 	return NewBlogClient(conn), nil
 }
